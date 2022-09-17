@@ -33,6 +33,6 @@ class PepParsePipeline:
             )
             csv_writer.writerows([
                 ['Статус', 'Количество'],
-                *[[status, self.statuses[status]] for status in self.statuses],
+                *self.statuses.items(),
                 ['Total', sum(self.statuses.values())]
             ])
