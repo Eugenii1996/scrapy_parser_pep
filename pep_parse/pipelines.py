@@ -26,8 +26,13 @@ class PepParsePipeline:
             mode='w',
             encoding='utf-8'
         ) as csvfile:
-            csv_writer = csv.writer(csvfile, lineterminator='\n')
-            csv_writer.writerow(('Статус', 'Количество'))
-            for status in self.statuses:
-                csv_writer.writerow((status, self.statuses[status]))
-            csv_writer.writerow(('Total', sum(self.statuses.values())))
+            csv_writer = csv.writer(
+                csvfile,
+                dialect=csv.unix_dialect,
+                quoting=csv.QUOTE_NONE
+            )
+            csv_writer.writerows([
+                ['Статус', 'Количество'],
+                *[[status, self.statuses[status]] for status in self.statuses],
+                ['Total', sum(self.statuses.values())]
+            ])
