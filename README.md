@@ -18,19 +18,41 @@
  - Git
  - Pytest
 
-### Клонировать репозиторий c GitHub:
+### Клонирование репозитория и переход в него в командной строке:
 
 ```bash
 git clone git@github.com:Eugenii1996/scrapy_parser_pep.git
 ```
 
-После клонирования необходимо установить и активировать виртуальное окружение находясь в директории scrapy_parser_pep:
+```bash
+cd scrapy_parser_pep
+```
+
+### Cоздать и активировать виртуальное окружение:
+
+Виртуальное окружение должно использовать Python 3.7
 
 ```bash
 pyhton -m venv venv
 ```
 
-Далее нужно обновить менеджер пакетов pip и установить зависимости:
+* Если у вас Linux/MacOS
+
+    ```bash
+    source venv/bin/activate
+    ```
+
+* Если у вас windows
+
+    ```bash
+    source venv/scripts/activate
+    ```
+
+### Установка зависимостей из файла requirements.txt:
+
+```bash
+python -m pip install --upgrade pip
+```
 
 ```bash
 pip install -r requirements.txt
@@ -38,7 +60,7 @@ pip install -r requirements.txt
 
 ### Запуск проекта:
 
-Чтобы запустить проект, из директории scrapy_parser_pep нужно выполнить команду:
+Из корневой деректории проекта scrapy_parser_pep выполнить команды:
 
 ```bash
 scrapy crawl pep
